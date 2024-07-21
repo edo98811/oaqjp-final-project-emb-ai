@@ -1,0 +1,18 @@
+# final_project/setup.py
+
+from setuptools import setup, find_packages
+
+setup(
+    name="emotion_detector",
+    version="0.1",
+    packages=find_packages(),
+    description="An interface to communicate with watson AI ",
+    author="Edoardo Filippi",
+    author_email="edoardofilippi1998@gmail.com",
+    install_requires=[
+        "requests"
+    ],
+        tests_require=[
+        "pytest",
+    ],
+)
