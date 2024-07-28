@@ -21,21 +21,31 @@ def emotion_detector(text_to_analyse):
             'sadness': None,
             'dominant_emotion': None
         }
-    else: 
-        
-        # Identify dominant emotion
-        emotions_scores = json.reads(response["text"])
+ 
+        # response = dict()
 
-    return eidentify_dominant_emotion(emotion_scores) 
+        # emotions_scores = {
+        #     'anger': 0.94,
+        #     'disgust': 0.94,
+        #     'fear': 0.94,
+        #     'joy': 0.95,
+        #     'sadness': 0.94
+        # }
+        # Identify dominant emotion
+    emotions_scores = json.reads(response["text"])
+
+    return identify_dominant_emotion(emotions_scores) 
 
 def identify_dominant_emotion(emotions):
 
-    best = NA
-    for emotion in keys(emotions):
-        if best == NA: best == emotion
-        elif emotions[emotion] > emotions[emotion]: best = emotion
-    
-    return emotions.update({"dominant_emotion": best})
+    best = None
+    for emotion in emotions.keys():
+        if best == None: best = emotion
+        elif emotions[emotion] > emotions[best]: best = emotion
+
+    emotions["dominant_emotion"] = best
+
+    return emotions
 
 
 if __name__ == "__main__":

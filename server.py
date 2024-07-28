@@ -37,9 +37,9 @@ def emotion_detector():
             'dominant_emotion': None
         }
 
-        response_message = "Error: No input provided. Please enter some text for analysis."
+        response_message = "Invalid text! Please try again!"
         response_body = jsonify({'status_code': 400, 'message': \
-            response_message, 'data': error_response})
+            response_message})
 
         return response_body, 400
 
